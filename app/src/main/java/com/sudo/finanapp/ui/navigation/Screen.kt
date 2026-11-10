@@ -15,6 +15,8 @@ sealed class Screen(val route: String, val title: String, val icon: ImageVector)
 
     object Analysis : Screen("Analysis", "Analisis", Icons.Outlined.BarChart)
 
-    object Register : Screen("Register", "Registrar", Icons.Outlined.AddCircleOutline)
+    object Register : Screen("register/{id}", "Registrar", Icons.Outlined.AddCircleOutline) {
+        fun createRoute(id: Long = 0L) = "register/$id"
+    }
     object Settings : Screen("settings", "Ajustes", Icons.Outlined.Settings)
 }
