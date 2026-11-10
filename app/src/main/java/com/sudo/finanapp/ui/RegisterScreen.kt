@@ -1,4 +1,4 @@
-package com.sudo.finanapp.feature.register
+package com.sudo.finanapp.ui.Register
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
@@ -24,11 +24,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cuadre.app.data.*
-import com.cuadre.app.ui.CategoryIcon
-import com.cuadre.app.ui.Muted
-import com.cuadre.app.ui.Segmented
-import com.cuadre.app.ui.Title
 import com.cuadre.app.ui.theme.Cuadre
+import com.sudo.finanapp.ui.CategoryIcon
+import com.sudo.finanapp.ui.Muted
+import com.sudo.finanapp.ui.Segmented
+import com.sudo.finanapp.ui.Title
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -75,7 +75,7 @@ fun RegisterScreen(
         Spacer(Modifier.height(14.dp))
 
         // RF02: diferenciar ingreso / gasto
-        Segmented(listOf("Gasto", "Ingreso"), if (isIncome) 1 else 0) {
+        Segmented (listOf("Gasto", "Ingreso"), if (isIncome) 1 else 0) {
             kind = if (it == 1) Kind.INCOME else Kind.EXPENSE
             cat = Category.of(kind).first()
         }

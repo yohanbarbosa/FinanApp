@@ -1,4 +1,4 @@
-package com.cuadre.app.ui
+package com.sudo.finanapp.ui.HomeScreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,6 +20,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cuadre.app.data.*
+import com.cuadre.app.ui.CuadreCard
+import com.cuadre.app.ui.MovementList
+import com.cuadre.app.ui.Muted
+import com.cuadre.app.ui.SectionTitle
+import com.cuadre.app.ui.Title
 import com.cuadre.app.ui.theme.Cuadre
 import java.time.YearMonth
 import kotlin.math.roundToInt
@@ -104,7 +109,7 @@ fun HomeScreen(items: List<Movement>, onSeeAll: () -> Unit, onOpen: (Movement) -
                 modifier = Modifier.clickable(onClick = onSeeAll).padding(4.dp))
         }
         if (recent.isEmpty()) Muted("Aún no hay movimientos. Toca Registrar para añadir el primero.")
-        else MovementList(recent, onOpen)
+        else MovementList (recent, onOpen)
     }
 }
 

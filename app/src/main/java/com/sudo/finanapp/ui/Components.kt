@@ -1,4 +1,4 @@
-package com.cuadre.app.ui
+package com.sudo.finanapp.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

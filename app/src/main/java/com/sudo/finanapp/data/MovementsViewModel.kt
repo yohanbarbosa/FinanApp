@@ -1,20 +1,24 @@
 package com.cuadre.app.data
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import com.sudo.finanapp.data.AppDb
+import com.sudo.finanapp.data.toEntity
+import com.sudo.finanapp.data.toModel
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
-class MovementsViewModel : ViewModel() {
-    private val _items = MutableStateFlow(seedMovements())
-    val items: StateFlow<List<Movement>> = _items.asStateFlow()
-    private var nextId = 1000L
+class MovementsViewModel(app: Application) : AndroidViewModel(app) {
+    private val dao = AppDb.get(app).dao()
 
-    fun get(id: Long): Movement? = _items.value.firstOrNull { it.id == id }
+    val items: StateFlow<List<Movement>> = dao.observeAll()
+        .map { list -> list.map { it.toModel() } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
-    /** id == 0 → nuevo registro; otro id → edición. */
-    fun save(m: Movement) = _items.update { list ->
-        if (m.id == 0L) list + m.copy(id = nextId++)
-        else list.map { if (it.id == m.id) m else it }
-    }
+    fun get(id: Long): Movement? = items.value.firstOrNull { it.id == id }
 
-    fun delete(id: Long) = _items.update { list -> list.filterNot { it.id == id } }
+    fun save(m: Movement) { viewModelScope.launch { dao.upsert(m.toEntity()) } }
+
+    fun delete(id: Long) { viewModelScope.launch { dao.delete(id) } }
 }

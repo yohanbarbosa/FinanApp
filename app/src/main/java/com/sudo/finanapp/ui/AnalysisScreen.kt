@@ -1,4 +1,5 @@
-package com.cuadre.app.ui
+package com.sudo.finanapp.ui.AnalysisScreen
+
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -20,6 +21,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cuadre.app.data.*
 import com.cuadre.app.ui.theme.Cuadre
+import com.sudo.finanapp.ui.CuadreCard
+import com.sudo.finanapp.ui.Muted
+import com.sudo.finanapp.ui.SectionTitle
+import com.sudo.finanapp.ui.Segmented
+import com.sudo.finanapp.ui.Title
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.TextStyle
@@ -133,7 +139,7 @@ fun AnalysisScreen(items: List<Movement>) {
 
 @Composable
 private fun SummaryCard(label: String, value: String, color: androidx.compose.ui.graphics.Color, modifier: Modifier) {
-    CuadreCard(modifier) {
+    CuadreCard (modifier) {
         Column(Modifier.padding(14.dp)) {
             Muted(label)
             Text(value, color = color, fontWeight = FontWeight.Bold, fontSize = 19.sp)

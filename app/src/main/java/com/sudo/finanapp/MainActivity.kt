@@ -17,10 +17,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cuadre.app.data.seedMovements
-import com.cuadre.app.ui.AnalysisScreen
-import com.cuadre.app.ui.HomeScreen
-import com.cuadre.app.ui.MovementsScreen
-import com.sudo.finanapp.feature.register.RegisterScreen
+import com.sudo.finanapp.ui.AnalysisScreen.AnalysisScreen
+import com.sudo.finanapp.ui.HomeScreen.HomeScreen
+import com.sudo.finanapp.ui.MovementsScreeen.MovementsScreen
+import com.sudo.finanapp.ui.Register.RegisterScreen
 import com.sudo.finanapp.ui.components.BottomNavigationBar
 import com.sudo.finanapp.ui.navigation.Screen
 
@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
 
                         // Pantalla 2: Movimientos (Ejemplo temporal)
                         composable(Screen.Movements.route) {
-                            MovementsScreen(
+                            MovementsScreen (
                                 items = seedMovements(),
                                 onOpen = { /* Abrir detalle del movimiento */ }
                             )
@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
 
                         // Pantalla 4: Movimientos (Ejemplo temporal)
                         composable(Screen.Register.route) {
-                            RegisterScreen(
+                            RegisterScreen (
                                 initial = null, // null para CREAR uno nuevo (o pasa un Movement para EDITAR)
                                 onSave = { newMovement ->
                                     // 1. Guardas o actualizas la lista de movimientos aquí
