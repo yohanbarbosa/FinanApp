@@ -58,8 +58,13 @@ fun MovementRow(m: Movement, onClick: () -> Unit) {
     ) {
         CategoryIcon(m.category)
         Column(Modifier.weight(1f)) {
-            Text(m.title, color = c.tx, fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
-            Muted(if (m.kind == Kind.INCOME) "Ingreso · ${m.category.label}" else m.category.label)
+            Text(if (m.kind == Kind.INCOME) "Ingreso · ${m.category.label}" else m.category.label,
+                color = c.tx,
+                fontWeight = FontWeight.SemiBold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis)
+
+            Muted(m.title)
         }
         Text(
             money(m.signed, sign = true), fontWeight = FontWeight.SemiBold, fontSize = 16.sp,

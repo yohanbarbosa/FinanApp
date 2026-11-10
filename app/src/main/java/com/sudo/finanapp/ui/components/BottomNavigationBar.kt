@@ -17,7 +17,6 @@ fun BottomNavigationBar(navController: NavController) {
         Screen.Home,
         Screen.Movements,
         Screen.Analysis,
-        Screen.Register,
         Screen.Settings
     )
 

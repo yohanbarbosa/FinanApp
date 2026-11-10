@@ -82,25 +82,7 @@ fun HomeScreen(items: List<Movement>, onSeeAll: () -> Unit, onOpen: (Movement) -
             }
         }
 
-        // Presupuesto de alimentación
-        Spacer(Modifier.height(12.dp))
-        CuadreCard {
-            Column(Modifier.padding(14.dp)) {
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    Text("Alimentación", color = c.tx, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                    Text("${money(food)} de ${money(FOOD_BUDGET)}", color = c.tx, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                }
-                LinearProgressIndicator(
-                    progress = { (food.toFloat() / FOOD_BUDGET).coerceIn(0f, 1f) },
-                    modifier = Modifier.padding(vertical = 10.dp).fillMaxWidth().height(8.dp).clip(RoundedCornerShape(4.dp)),
-                    color = c.warn, trackColor = c.sv, drawStopIndicator = {},
-                )
-                Muted(
-                    if (food <= FOOD_BUDGET) "Te quedan ${money(FOOD_BUDGET - food)} para el resto del mes."
-                    else "Te pasaste ${money(food - FOOD_BUDGET)} del presupuesto.",
-                )
-            }
-        }
+
 
         // Últimos movimientos
         Row(Modifier.fillMaxWidth().padding(top = 20.dp, bottom = 8.dp), verticalAlignment = Alignment.Bottom) {

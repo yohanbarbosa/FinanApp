@@ -33,6 +33,8 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.input.TextFieldValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,7 +45,8 @@ fun RegisterScreen(
 ) {
     val c = Cuadre.colors
     var kind by remember { mutableStateOf(initial?.kind ?: Kind.EXPENSE) }
-    var digits by remember { mutableStateOf(initial?.amount?.toString() ?: "") }
+    val startText = initial?.amount?.toString() ?: ""
+    var field by remember { mutableStateOf(TextFieldValue(startText, TextRange(startText.length))) }
     var cat by remember { mutableStateOf(initial?.category ?: Category.ALIMENTACION) }
     var title by remember { mutableStateOf(initial?.title ?: "") }
     var date by remember { mutableStateOf(initial?.date ?: LocalDate.now()) }
@@ -51,7 +54,7 @@ fun RegisterScreen(
     var pickDate by remember { mutableStateOf(false) }
     val focus = remember { FocusRequester() }
 
-    val amount = digits.toLongOrNull() ?: 0L
+    val amount = field.text.toLongOrNull() ?: 0L
     val amountErr = tried && amount <= 0                // RF02: valor > 0
     val titleErr = tried && title.isBlank()             // RF02: descripción obligatoria
     val isIncome = kind == Kind.INCOME
@@ -100,8 +103,11 @@ fun RegisterScreen(
             Muted("Pesos colombianos")
             if (amountErr) Text("El valor debe ser mayor que cero.", color = c.exp, fontSize = 13.sp)
             BasicTextField(
-                value = digits,
-                onValueChange = { digits = it.filter(Char::isDigit).take(12) },
+                value = field,
+                onValueChange = { nv ->
+                    val d = nv.text.filter(Char::isDigit).take(12)
+                    field = TextFieldValue(d, TextRange(d.length))   // cursor siempre al final
+                },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.size(1.dp).alpha(0f).focusRequester(focus),
             )
