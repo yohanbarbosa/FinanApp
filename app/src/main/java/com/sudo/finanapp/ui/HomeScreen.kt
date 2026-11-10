@@ -20,11 +20,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cuadre.app.data.*
-import com.sudo.finanapp.ui.MovementList
-import com.sudo.finanapp.ui.CuadreCard
-import com.sudo.finanapp.ui.SectionTitle
-import com.sudo.finanapp.ui.Muted
-import com.sudo.finanapp.ui.Title
+import com.sudo.finanapp.ui.components.MovementList
+import com.sudo.finanapp.ui.components.SectionTitle
+import com.sudo.finanapp.ui.components.Muted
+import com.sudo.finanapp.ui.components.CuadreCard
+import com.sudo.finanapp.ui.components.Title
 import com.sudo.finanapp.ui.theme.Cuadre
 import java.time.YearMonth
 import kotlin.math.roundToInt

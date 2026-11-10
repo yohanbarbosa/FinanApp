@@ -25,16 +25,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cuadre.app.data.*
 import com.sudo.finanapp.ui.theme.Cuadre
-import com.sudo.finanapp.ui.CategoryIcon
-import com.sudo.finanapp.ui.Muted
-import com.sudo.finanapp.ui.Segmented
-import com.sudo.finanapp.ui.Title
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
+import com.sudo.finanapp.ui.components.CategoryIcon
+import com.sudo.finanapp.ui.components.Muted
+import com.sudo.finanapp.ui.components.Segmented
+import com.sudo.finanapp.ui.components.Title
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -36,7 +36,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.cuadre.app.data.Movement
 import com.cuadre.app.data.MovementsViewModel
-import com.cuadre.app.data.seedMovements
 import com.sudo.finanapp.ui.AnalysisScreen.AnalysisScreen
 import com.sudo.finanapp.ui.HomeScreen.HomeScreen
 import com.sudo.finanapp.ui.MovementsScreeen.MovementsScreen
@@ -53,7 +52,7 @@ import androidx.navigation.navArgument
 import com.cuadre.app.data.Kind
 import com.cuadre.app.data.dayLabel
 import com.cuadre.app.data.money
-import com.sudo.finanapp.ui.Muted
+import com.sudo.finanapp.ui.components.Muted
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

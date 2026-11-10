@@ -17,9 +17,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cuadre.app.data.*
 import com.sudo.finanapp.ui.theme.Cuadre
-import com.sudo.finanapp.ui.MovementList
-import com.sudo.finanapp.ui.Muted
-import com.sudo.finanapp.ui.Title
+import com.sudo.finanapp.ui.components.MovementList
+import com.sudo.finanapp.ui.components.Muted
+import com.sudo.finanapp.ui.components.Title
 import java.time.YearMonth
 
 @Composable
@@ -71,7 +71,7 @@ fun MovementsScreen(items: List<Movement>, onOpen: (Movement) -> Unit) {
                 Text(dayLabel(date), color = c.tx2, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
                 Text(money(list.sumOf { it.signed }, true), color = c.tx2, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
             }
-            MovementList (list.sortedByDescending { it.id }, onOpen)
+            MovementList  (list.sortedByDescending { it.id }, onOpen)
         }
     }
 }

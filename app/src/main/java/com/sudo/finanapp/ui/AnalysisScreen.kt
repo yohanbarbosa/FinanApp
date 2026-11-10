@@ -28,11 +28,11 @@ import com.cuadre.app.data.income
 import com.cuadre.app.data.money
 import com.cuadre.app.data.monthName
 import com.sudo.finanapp.ui.theme.Cuadre
-import com.sudo.finanapp.ui.CuadreCard
-import com.sudo.finanapp.ui.Muted
-import com.sudo.finanapp.ui.SectionTitle
-import com.sudo.finanapp.ui.Segmented
-import com.sudo.finanapp.ui.Title
+import com.sudo.finanapp.ui.components.CuadreCard
+import com.sudo.finanapp.ui.components.Muted
+import com.sudo.finanapp.ui.components.SectionTitle
+import com.sudo.finanapp.ui.components.Segmented
+import com.sudo.finanapp.ui.components.Title
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.TextStyle
