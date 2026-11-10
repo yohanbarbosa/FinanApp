@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cuadre.app.data.*
-import com.cuadre.app.ui.theme.Cuadre
+import com.sudo.finanapp.ui.theme.Cuadre
 
 @Composable
 fun CuadreCard(modifier: Modifier = Modifier, radius: Dp = 16.dp, content: @Composable () -> Unit) {

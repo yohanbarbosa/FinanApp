@@ -19,8 +19,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cuadre.app.data.*
-import com.cuadre.app.ui.theme.Cuadre
+import com.cuadre.app.data.ES
+import com.cuadre.app.data.Movement
+import com.cuadre.app.data.expense
+import com.cuadre.app.data.expenseByCategory
+import com.cuadre.app.data.inMonth
+import com.cuadre.app.data.income
+import com.cuadre.app.data.money
+import com.cuadre.app.data.monthName
+import com.sudo.finanapp.ui.theme.Cuadre
 import com.sudo.finanapp.ui.CuadreCard
 import com.sudo.finanapp.ui.Muted
 import com.sudo.finanapp.ui.SectionTitle

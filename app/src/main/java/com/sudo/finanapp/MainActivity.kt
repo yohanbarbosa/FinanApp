@@ -114,7 +114,7 @@ fun FinanApp(vm: MovementsViewModel = viewModel()){
             ) { entry ->
                 val id = entry.arguments?.getLong("id") ?: 0L
                 RegisterScreen(
-                    initial = vm.get(id),                       // null → crear, Movement → editar
+                    initial = vm.get(id),
                     onSave = { vm.save(it); navController.popBackStack() },
                     onClose = { navController.popBackStack() },
                 )
