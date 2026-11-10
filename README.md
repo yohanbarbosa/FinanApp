@@ -1,10 +1,10 @@
-# FinanApp (Cuadre) — Finanzas personales para Android
+# FinanApp — Finanzas personales para Android
 
 Aplicación móvil nativa para **registrar, consultar y administrar ingresos y gastos personales**, ver el balance disponible y analizar el comportamiento de los movimientos. Funciona sin conexión: todos los datos se guardan localmente en el dispositivo.
 
 ## Descripción del proyecto
 
-Cuadre responde a una pregunta simple: *¿cuánto me queda este mes y en qué se me va el dinero?* El balance se lee como una barra que enfrenta ingresos y gastos, y cada pantalla del análisis empieza con una frase que resume lo que está pasando.
+Responde a una pregunta simple: *¿cuánto me queda este mes y en qué se me va el dinero?* El balance se lee como una barra que enfrenta ingresos y gastos, y cada pantalla del análisis empieza con una frase que resume lo que está pasando.
 
 ### Requisitos funcionales cubiertos
 
@@ -51,8 +51,21 @@ app/src/main/java/com/sudo/finanapp/
 └── ui/
     ├── theme/               ← colores claro y oscuro
     ├── components/          ← barra de navegación y componentes compartidos
+    │   ├── ButtomNavigation.kt
+    │   ├── CategoryIcon.kt
+    │   ├──CuadreCard.kt
+    │   ├──MovementRow.kt
+    │   ├──Muted.kt
+    │   ├──SectionTitle.kt
+    │   ├──Segmented.kt
+    │   └── Title
     ├── navigation/          ← rutas (Screen)
-    └── (pantallas)          ← Inicio, Registrar, Movimientos, Análisis
+    │   └── Screen        
+    ├── AnalysisScreen.kt    ← Análisis
+    ├── HomeScreen.kt        ← Inicio, Registrar, Movimientos, 
+    ├── MovementsScreen.kt   ← Movimientos 
+    └── RegisterScreen.kt    ← Registrar 
+       
 ```
 
 > Los nombres de carpetas y paquetes pueden variar ligeramente según cómo se hayan organizado en el proyecto.
@@ -163,9 +176,3 @@ Como Room emite una lista nueva cada vez que la tabla cambia, al registrar, edit
 
 Con la app en ejecución: **View → Tool Windows → App Inspection → Database Inspector**. Ahí se ve y se consulta la tabla `movements` en vivo.
 
-## Próximos pasos
-
-- Implementar la pestaña **Más** (ajustes, cuentas y presupuestos editables).
-- Precargar datos de ejemplo en el primer arranque.
-- Exportar movimientos a CSV.
-- Pruebas unitarias de los cálculos de balance y pruebas de la base de datos.
